@@ -1,3 +1,5 @@
+#other students work with slight refactor for learning purpose
+
 module Enumberable
 
 def my_each
@@ -58,19 +60,49 @@ end
 
 def my_any?
   if self.is_a? Hash
-    my_each { |i, j| return true unless yield(i, j) }
+    if block_given?
+      my_each { |i, j| return true if yield(i, j) }
+    else
+      return true unless self.empty?
+    end
   else
     if block_given?
-      my_each { |elem| return true unless yield(elem) }
+      my_each { |elem| return true if yield(elem) }
     else
-      my_each { |elem| return true if elem == false || elem.nil? }
+      my_each { |elem| return true unless elem == false || elem.nil? }
     end
   end
-true
+false
 end
 
+def my_none?
+  if self.is_a? Hash
+    if block_given?
+      my_each { |i, j| return false if yield(i, j) }
+    else
+      return false unless self.empty?
+    end
+  else
+    if block_given?
+      my_each { |elem| return false if yield(elem) }
+    else
+      my_each { |elem| return false unless elem == false || elem.nil? }
+    end
+  end
+  true
+end
 
-
+def my_count
+  return to_enum(:my_count) unless block_given?
+  count = 0
+  if self.is_a? Hash
+    my_each { |i, j| count += 1 }
+  else
+    count = 0
+    my_each { |elem| count += 1 }
+  end
+  return count
+end
 
 
 

@@ -1,9 +1,9 @@
 class Knight
-  attr_accessor :position, :possible_moves, :board, :parent
+  attr_accessor :position, :possible_moves, :board, :previous_spot
 
-  def initialize(start_loc=nil)
-    @position = start_loc
-    @parent = nil
+  def initialize(start=nil)
+    @position = start
+    @previous_spot = nil
     @board = create_board
     @possible_moves = new_moves(position = [0,0])
   end
@@ -17,11 +17,11 @@ class Knight
     end
   end
 # make list of all possible moves
-  def new_moves(start_loc)
+  def new_moves(start)
     moves = []
     possible_moves = [[1,2], [1,-2], [2,1], [-2,1], [2,-1], [-2,-1], [-1,2], [-1,-2]]
     possible_moves.each do |i|
-      next_move = [start_loc[0] + i[0], start_loc[1] + i[1]]
+      next_move = [start[0] + i[0], start[1] + i[1]]
       if location_valid?(next_move)
         moves.push(next_move)
       end
@@ -37,28 +37,28 @@ class Knight
     end
   end
 
-  def knight_moves(start_loc, end_loc)
-    if !location_valid?(start_loc) || !location_valid?(end_loc)
+  def knight_moves(start, end)
+    if !location_valid?(start) || !location_valid?(end)
       puts "positions are not valid"
     else
-      knight = Knight.new(start_loc)
+      knight = Knight.new(start)
       moves = [knight]
-      until moves[0].position == end_loc
+      until moves[0].position == end
         prev_move = moves.shift
         new_moves(prev_move.position).each do |move|
           knight = Knight.new(move)
-          knight.parent = prev_move
+          knight.previous_spot = prev_move
           moves << knight
         end
       end
       current_knight = moves[0]
       path = []
-      until current_knight.parent == nil
+      until current_knight.previous_spot == nil
         path.unshift(current_knight.position)
-        current_knight = current_knight.parent
+        current_knight = current_knight.previous_spot
       end
       path.unshift(current_knight.position)
-      puts "The shortest path from #{start_loc} to #{end_loc} is "
+      puts "The shortest path from #{start} to #{end} is "
       path.each do |x|
         print x.to_s + " "
       end
