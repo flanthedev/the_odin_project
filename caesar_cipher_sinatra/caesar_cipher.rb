@@ -2,6 +2,7 @@ require 'sinatra'
 require 'sinatra/reloader' if development?
 
 def caesar_cypher(string, shift)
+  # declare arrays and string for steps through ciphering
   ascii_arr = []
   shifted_num = []
   new_text = ""
@@ -28,16 +29,23 @@ def caesar_cypher(string, shift)
     else
       shifted_num.push(num)
     end
+    shifted_num
   end
 
   shifted_num.each do |num|
     new_text += num.chr
   end
 
-  p new_text
+  new_text
 
 end
 
 get '/' do
-  erb :index
+  new_text = ""
+  string = params['string']
+  shift = params['shift'].to_i
+  if string != nil && shift != nil
+    new_text = caesar_cypher(string, shift)
+  end
+  erb :index, :locals => { :new_text => new_text }
 end
