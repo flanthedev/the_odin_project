@@ -5,13 +5,13 @@ require "sinatra/reloader" if development?
 enable :sessions
 
 get "/" do
-  new_game if session[:secret_word].nil?
+  new_game if session[:word].nil?
   update_session
   erb :index
 end
 
 post "/" do
-  verify_guess
+  check_guess
   game_over?
   update_session
   erb :index
@@ -20,50 +20,13 @@ end
 
 helpers do
 
-  def new_game
-    secret_word = ""
-    while (secret_word.size < 5 || secret_word.size > 12) do
-      dictionary = File.readlines "5text.txt"
-      dictionary.map! { |i| i.downcase.chomp! }
-      secret_word = dictionary[rand(dictionary.size)]
-    end
-    @secret_word = secret_word
-
-    session[:message] = @message
-
-    session[:secret_word] = @secret_word.upcase
-    session[:guessed] = []
-    session[:wrong_guesses] = 0
-    session[:win] = false
-    session[:lose] = false
-    session[:partial_word] = "_" * @secret_word.size
-  end
-
-  def verify_guess
-    if (params["guess"].size!=1 || params["guess"]>'z' || params["guess"]<'A' || (session[:guessed].include? (params["guess"].upcase)))
-    else
-      session[:guessed] << params["guess"].upcase
-      if !session[:secret_word].include? params["guess"].upcase
-        session[:wrong_guesses] += 1
-      else
-        secret_array = session[:secret_word].split(//)
-        secret_array.size.times do |i|
-          if secret_array[i] == params["guess"].upcase
-            session[:partial_word][i] = secret_array[i]
-          end
-        end
-      end
-    end
-  end
-
   def update_session
     @guessed = session[:guessed]
     @wrong_guesses = session[:wrong_guesses]
     @win = session[:win]
     @lose = session[:lose]
-    @partial_word = session[:partial_word]
-    @secret_word = session[:secret_word]
-
+    @hint = session[:hint]
+    @word = session[:word]
 
     if @win
       @message = "you won! play again?"
@@ -73,16 +36,53 @@ helpers do
     end
 
     if @win || @lose
-      session[:secret_word] = nil
+      session[:word] = nil
     end
   end
+
+  def new_game
+    word = ""
+    while (word.size < 5 || word.size > 12) do
+      word = File.readlines("/home/chris/projects/the_odin_project/hangman_sinatra/5text.txt").sample.to_s.chomp
+    end
+    @word = word
+
+    @message = "take a guess!"
+    session[:message] = @message
+    session[:word] = @word.upcase
+    session[:guessed] = []
+    session[:wrong_guesses] = 0
+    session[:win] = false
+    session[:lose] = false
+    session[:hint] = "_" * @word.size
+  end
+
+  def check_guess
+    if (params["guess"].size!=1 || params["guess"]>'z' || params["guess"]<'A' || (session[:guessed].include? (params["guess"].upcase)))
+    else
+      session[:guessed] << params["guess"].upcase
+      if !session[:word].include? params["guess"].upcase
+        session[:wrong_guesses] += 1
+        @message = "wrong, sorry!"
+      else
+        word_array = session[:word].split(//)
+        word_array.size.times do |i|
+          if word_array[i] == params["guess"].upcase
+            session[:hint][i] = word_array[i]
+            @message = "you guessed correctly. wow!"
+          end
+        end
+      end
+    end
+  end
+
 
   def game_over?
     if session[:wrong_guesses] > 5
       session[:lose] = true
     else
       session[:win] = true
-      session[:secret_word].each_char do |i|
+      session[:word].each_char do |i|
         if !session[:guessed].include? i
           session[:win] = false
         end
