@@ -1,31 +1,55 @@
 module Enumerable
 
   def my_each
-    return to_enum(:my_each) unless block_given?
+
+    return self.to_enum unless block_given?
 
     if self.is_a? Hash
       for key in self.keys
         yield(key, self[key])
       end
-    else # self is array
-      for elem in self
-        yield(elem)
+    elsif self.empty?
+      return []
+    else #array
+      for x in self
+        output =[]
+        #self.length.times { |i| output << yield(self[i]) }
+        #self.length.times { |i| yield(self[i]) }
+        output << yield(self[x])
+      end
+      #return [] if Array.empty?
+      return output
+    end
+  end
+
+  def my_each
+    if self.class == Array
+      for i in 0..size - 1
+        yield (self[i])
+      end
+    elsif self.class == Hash
+      keys = self.keys
+      for i in 0..keys.size - 1
+        yield [keys[i], self[keys[i]]]
       end
     end
   end
 
+
+
+
   def my_select
-    return to_enum(:my_select) unless block_given?
-
+    return self.to_enum unless block_given?
     if self.is_a? Hash
-      new_collection = {}
-      my_each { |k, v| new_collection[k] = v if yield(k,v) }
+      output = {}
+      my_each { |k, v| output[k] = v if yield(k,v) }
     else # self is array
-      new_collection = []
-      my_each { |elem| new_collection << elem if yield(elem) }
+      output = []
+      my_each { |elem| output << elem if yield(elem) }
     end
-
-    new_collection
+    return output
   end
+
+
 
 end
