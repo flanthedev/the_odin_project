@@ -5,7 +5,7 @@ require "sinatra/reloader" if development?
 enable :sessions
 
 get "/" do
-  new_game if session[:word].nil?
+  new_game
   update_session
   erb :index
 end
@@ -32,7 +32,7 @@ helpers do
       @message = "you won! play again?"
     end
     if @lose
-      @message = "you lost, sorry. play again?"
+      @message = "you lost, sorry. the word was #{@word}. play again?"
     end
 
     if @win || @lose
@@ -58,7 +58,10 @@ helpers do
   end
 
   def check_guess
-    if (params["guess"].size!=1 || params["guess"]>'z' || params["guess"]<'A' || (session[:guessed].include? (params["guess"].upcase)))
+    if (params["guess"].size!=1 || params["guess"]>'z' || params["guess"]<'A')
+      @message = "invalid input. try again!"
+    elsif (session[:guessed].include? (params["guess"].upcase))
+      @message = "you already guessed that letter, silly!"
     else
       session[:guessed] << params["guess"].upcase
       if !session[:word].include? params["guess"].upcase

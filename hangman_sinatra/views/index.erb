@@ -5,45 +5,60 @@
 </head>
 
   <body>
-  <div class="text-center">
+  <div class="text-center container">
 
     <h1>hangman</h1>
     <br />
     <div class="well">
 
-      <h3><%= @message %></h3>
-        <% if @lose || @win %>
-          <form action="/" method="get">
-            <input type="submit" value="yes" class="btn btn-primary">
-          </form>
-        <% end %>
+    <h2><%= @message %></h2>
 
+    <% if @wrong_guesses == 0 %>
+      <img src="/nowrong.png" />
+    <% elsif @wrong_guesses == 1 %>
+      <img src="/1wrong.png" />
+    <% elsif @wrong_guesses == 2 %>
+      <img src="/2wrong.png" />
+    <% elsif @wrong_guesses == 3 %>
+      <img src="/3wrong.png" />
+    <% elsif @wrong_guesses == 4 %>
+      <img src="/4wrong.png" />
+    <% elsif @wrong_guesses == 5 %>
+      <img src="/5wrong.png" />
+    <% else %>
+      <img src="/6wrong.png" />
+    <% end %>
+
+    <% if @lose || @win %>
+      <form action="/" method="get">
+        <input type="submit" value="yes, please!" class="btn btn-primary">
+      </form>
+    <% end %>
 
     <% if !(@lose || @win) %>
-      <h3><%= @hint.split(//).join("  ") %></h3>
-      <br />
+      <h2><strong><%= @hint.split(//).join("  ") %></strong></h2>
+      <h3>letters guessed: (<%= @guessed.join(", ") %>)</h3>
 
-        <p>letters guessed:</p>
-        <p><strong><%= @guessed.join(" ") %></strong></p>
-        <br />
-        <% if 6 - @wrong_guesses > 1 %>
-          <p>you have <strong><%= 6 - @wrong_guesses %></strong> guesses left</p>
-        <% else %>
-          <p>you have <strong><%= 6 - @wrong_guesses %></strong> guess left</p>
-        <% end %>
-
+      <% if 6 - @wrong_guesses > 1 %>
+        <p>you have <strong><%= 6 - @wrong_guesses %></strong> guesses left</p>
+      <% else %>
+        <p>uh oh! you only have <strong><%= 6 - @wrong_guesses %></strong> guess left</p>
+      <% end %>
 
         <p>
           <form action="/" method="post">
-            <input type="text" name="guess" size="2" />
-            <input type="submit" value="guess"class="btn btn-primary btn-sm" />
+            <input type="text" name="guess" size="2" autofocus="autofocus">
+            <input type="submit" value="guess" class="btn btn-primary btn-sm" />
           </form>
         </p>
-      <% end %>
-    </div>
-    <p>(The word is <%= @word %>)</p>
-  </div>
 
+      <% end %>
+
+    </div>
+
+    <p>(The word is <%= @word %>)</p>
+
+  </div>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
   </body>
 </html>
