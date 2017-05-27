@@ -4,15 +4,32 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
   <link href="https://fonts.googleapis.com/css?family=Gloria+Hallelujah" rel="stylesheet">
   <style>
+    body {
+      height: 100%;
+      font-family: 'Gloria Hallelujah', Verdana, cursive;
+    }
     #paperdiv {
       background-image:url('/paperbackground.jpg');
       background-repeat: no-repeat;
       background-position: center center;
       background-size: cover;
+      background-attachment: fixed;
+      min-height: 650px;
+      margin: 10px;
     }
-    body, h1, h2, h3 {
-      font-family: 'Gloria Hallelujah', Verdana, cursive;
-      font-size: 2em;
+    #messagediv, #hintdiv {
+      min-height: 120px;
+    }
+    #picdiv {
+      min-height: 310px;
+    }
+    input {
+      height: 90px;
+      font-size: 1.5em;
+      vertical-align: bottom;
+    }
+    p {
+      font-size: 1.5em;
     }
   </style>
 
@@ -25,40 +42,40 @@
     <br />
     <div class="well" id="paperdiv">
 
-    <h2><%= @message %></h2>
+    <div id="messagediv">
+      <h2><%= @message %></h2>
+    </div>
 
-    <% if @wrong_guesses == 0 %>
-      <img src="/nowrong.png" />
-    <% elsif @wrong_guesses == 1 %>
-      <img src="/1wrong.png" />
-    <% elsif @wrong_guesses == 2 %>
-      <img src="/2wrong.png" />
-    <% elsif @wrong_guesses == 3 %>
-      <img src="/3wrong.png" />
-    <% elsif @wrong_guesses == 4 %>
-      <img src="/4wrong.png" />
-    <% elsif @wrong_guesses == 5 %>
-      <img src="/5wrong.png" />
-    <% else %>
-      <img src="/6wrong.png" />
-    <% end %>
+    <div id="picdiv">
+      <% if @wrong_guesses == 0 %>
+        <img src="/nowrong.png" />
+      <% elsif @wrong_guesses == 1 %>
+        <img src="/1wrong.png" />
+      <% elsif @wrong_guesses == 2 %>
+        <img src="/2wrong.png" />
+      <% elsif @wrong_guesses == 3 %>
+        <img src="/3wrong.png" />
+      <% elsif @wrong_guesses == 4 %>
+        <img src="/4wrong.png" />
+      <% elsif @wrong_guesses == 5 %>
+        <img src="/5wrong.png" />
+      <% else %>
+        <img src="/6wrong.png" />
+      <% end %>
+    </div>
 
-    <% if @lose || @win %>
-      <form action="/" method="get">
-        <input type="submit" value="yes, please!" class="btn btn-lg btn-primary">
-      </form>
-    <% end %>
 
+  <div id="hintdiv">
     <% if !(@lose || @win) %>
-      <h2><strong><%= @hint.split(//).join("  ") %></strong></h2>
-      <p>letters guessed: (<%= @guessed.join(", ") %>)</p>
+      <p><strong><%= @hint.split(//).join("  ") %></strong></p>
+      <p>wrong letters: (<%= @wrong_letters.join(", ") %>)</p>
 
       <% if 6 - @wrong_guesses > 1 %>
         <p>you have <strong><%= 6 - @wrong_guesses %></strong> guesses left</p>
       <% else %>
         <p>uh oh! you only have <strong><%= 6 - @wrong_guesses %></strong> guess left</p>
       <% end %>
-
+  </div>
         <p>
           <form action="/" method="post">
             <input type="text" name="guess" size="2" autofocus="autofocus">
@@ -66,6 +83,13 @@
           </form>
         </p>
 
+      <% end %>
+
+      <% if @lose || @win %>
+        <div id="hintdiv"></div>
+        <form action="/" method="get">
+          <input type="submit" value="yes, please!" class="btn btn-lg btn-primary" autofocus="autofocus">
+        </form>
       <% end %>
 
     </div>

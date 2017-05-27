@@ -1,2 +1,2 @@
-require "./play"
+require "./hangman"
 run Sinatra::Application
