@@ -31,6 +31,9 @@
     p {
       font-size: 1.5em;
     }
+    footer {
+      text-align: center;
+    }
   </style>
 
 </head>
@@ -96,7 +99,20 @@
 
     <p>(The word is <%= @word %>)</p>
 
+    <h2>type a word to play your friend (close your eyes,friend)</h2>
+    <form action='/word_input' method='post'>
+      <input type='text' name='word_input'>
+      <input type='submit' value='submit this word' class='btn btn-primary'>
+    </form>
+    <h2>or choose a random word</h2>
+    <form action='/random_word' method='post'>
+      <input type='submit' value='random word' class='btn btn-primary' name='random_word'>
+    </form>
+
   </div>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
   </body>
+  <footer>
+    <small>made with ruby on sinatra</small>
+  </footer>
 </html>

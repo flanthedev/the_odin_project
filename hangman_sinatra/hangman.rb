@@ -17,6 +17,26 @@ post "/" do
   erb :index
 end
 
+post '/word_input'do
+  new_game
+
+  if params["word_input"] = params["word_input"][/[a-zA-Z]+/] && params["word_input"].size <= 12
+    session[:word] = (params["word_input"]).upcase
+  else
+    @message = "please choose a word with less than 13 letters. no numbers, punctuation, or symbols."
+    session[:word] = ""
+  end
+
+  update_session
+  erb :index
+end
+
+post '/random_word' do
+  new_game
+  update_session
+  erb :index
+end
+
 
 helpers do
 
