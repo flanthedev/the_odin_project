@@ -29,7 +29,7 @@ helpers do
     @word = session[:word]
 
     if @win
-      @message = "you won! play again?"
+      @message = "you won! the word was #{@word}. play again, smartie pants?"
     end
     if @lose
       @message = "you lost, sorry. the word was #{@word}. play again?"
