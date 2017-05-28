@@ -24,16 +24,13 @@ post "/" do
 end
 
 get '/word_input' do
-
   update_session
 
-  if params["word_input"] = params["word_input"][/[a-zA-Z]+/]
-    #&& params["word_input"].size <= 12 && !params["word_input"].nil?
-
+  if params["word_input"] = params["word_input"][/[a-zA-Z]+{4,12}/]
     new_game_word_input
   else
-      @message = "please choose a word with less than 13 letters. no numbers, punctuation, or symbols."
-      @intro = true
+    @message = "please choose a word 4 to 12 letters long and no numbers, punctuation, or symbols."
+    @intro = true
   end
 
   erb :index
