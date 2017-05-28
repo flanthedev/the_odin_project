@@ -5,14 +5,7 @@ require "sinatra/reloader" if development?
 enable :sessions
 
 get "/" do
-  @hint = "x"
-  @wrong_letters = []
-  @wrong_guesses = 0
-
-  @intro = session[:intro]
-  session[:intro] = true
-  @message = "type a word to play with your friend (close your eyes, friend)"
-
+  intro_session
   erb :index
 end
 
@@ -72,6 +65,19 @@ end
 
 
 helpers do
+
+  def intro_session
+    @hint = "x"
+    @wrong_letters = []
+    @wrong_guesses = 0
+
+
+    @intro = session[:intro]
+    session[:intro] = true
+    @message = "type a word to play with your friend (close your eyes, friend)"
+
+  end
+
 
   def update_session
     @guessed = session[:guessed]
