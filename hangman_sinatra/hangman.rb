@@ -40,7 +40,8 @@ get '/word_input' do
   update_session
 
   if params["word_input"] = params["word_input"][/[a-zA-Z]+{4,12}/]
-    new_game_word_input
+    get_word_input
+    new_game
     update_session
   else
     @message = "please choose a word 4 to 12 letters long and no numbers, punctuation, or symbols."
@@ -60,7 +61,9 @@ get '/choose_word' do
 end
 
 post '/random_word' do
+  get_word_random
   new_game
+
   update_session
   erb :index
 end
@@ -98,41 +101,23 @@ helpers do
 
   end
 
-  def new_game_word_input
-      session[:intro] = false
-
-      @word = (params["word_input"]).upcase
-      session[:word] = @word
-      begin_responses = ["let's play!", "your turn, friend!", "ok, take a guess!", "let's goooo!", "it's game time!", "game on!"]
-      @message = begin_responses.sample
-
-      session[:message] = @message
-      session[:word] = @word.upcase
-      session[:guessed] = []
-      session[:wrong_guesses] = 0
-      session[:wrong_letters] = []
-      session[:win] = false
-      session[:lose] = false
-      session[:cheat] = false
-      session[:hint] = "_" * @word.size
+  def get_word_input
+    @word = (params["word_input"]).upcase
+    session[:word] = @word
   end
 
-
-def new_game_ref
-  session[:intro] = false
-end
-
-
-  def new_game
-    session["intro"] = false
-
+  def get_word_random
     word = ""
     while (word.size < 5 || word.size > 12) do
       word = File.readlines("5text.txt").sample.to_s.chomp
     end
     @word = word
+  end
 
-    begin_responses = ["let's play!", "your turn, friend!", "ok, take a guess!", "let's goooo!", "it's game time!", "game on!", "save this stick figure!", "death to the stick figure!"]
+  def new_game
+    session[:intro] = false
+
+    begin_responses = ["let's play!", "your turn, friend!", "ok, take a guess!", "let's goooo!", "it's game time!", "game on!"]
     @message = begin_responses.sample
 
     session[:message] = @message
@@ -145,6 +130,7 @@ end
     session[:cheat] = false
     session[:hint] = "_" * @word.size
   end
+
 
   def check_guess
     correct_responses = ["you are inspirational", "breathtaking performance", "mark it down!", "you're like the Kobe of hangman", "you deserve a high-five", "dust that dirt off your shoulder", "hot as a kettle!", "whoop-deeee-doooo!", "you're soooo smart!", "good guess, Professor", "wow, you got it right!", "amazing guess!"]
