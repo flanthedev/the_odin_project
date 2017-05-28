@@ -119,13 +119,11 @@
 
 
 <!-- button to start a new game -->
-    <% if @lose || @win %>
-      <form action="/" method="get">
+    <% if (@lose || @win) && !@intro %>
+      <form action="/choose_word" method="get">
         <input type="submit" value="yes, please!" class="btn btn-lg btn-primary" autofocus="autofocus">
       </form>
     <% end %>
-
-
 
   </div>
 
