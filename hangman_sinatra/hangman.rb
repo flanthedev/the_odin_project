@@ -5,8 +5,14 @@ require "sinatra/reloader" if development?
 enable :sessions
 
 get "/" do
-  new_game
-  update_session
+
+  @hint = "x"
+  @wrong_letters = []
+  @wrong_guesses = 0
+  @intro = session[:intro]
+  session[:intro] = true
+  @message = "type a word to play with your friend (close your eyes, friend)"
+
   erb :index
 end
 
@@ -17,17 +23,33 @@ post "/" do
   erb :index
 end
 
-post '/word_input'do
-  new_game
+get '/word_input' do
 
-  if params["word_input"] = params["word_input"][/[a-zA-Z]+/] && params["word_input"].size <= 12
+=begin
+  if params["word_input"] = params["word_input"][/[a-zA-Z]+/]
+    #&& params["word_input"].size <= 12 && !params["word_input"].nil?
     session[:word] = (params["word_input"]).upcase
+    new_game
+    update_session
   else
+    session[:intro] = true
     @message = "please choose a word with less than 13 letters. no numbers, punctuation, or symbols."
-    session[:word] = ""
   end
+=end
 
   update_session
+  new_game_word_input
+
+  erb :index
+end
+
+get '/choose_word' do
+  session[:intro] = true
+  update_session
+  @intro = session[:intro]
+
+  @message = "type a word to play with your friend (close your eyes, friend)"
+
   erb :index
 end
 
@@ -55,7 +77,34 @@ helpers do
     @message = lose_responses.sample if @lose
   end
 
+
+  def new_game_word_input
+    session["intro"] = false
+
+    @word = (params["word_input"]).upcase
+    session[:word] = @word
+
+    begin_responses = ["let's play!", "your turn, friend!", "ok, take a guess!", "let's goooo!", "it's game time!", "game on!"]
+    @message = begin_responses.sample
+
+    session[:message] = @message
+    session[:word] = @word.upcase
+    session[:guessed] = []
+    session[:wrong_guesses] = 0
+    session[:wrong_letters] = []
+    session[:win] = false
+    session[:lose] = false
+    session[:hint] = "_" * @word.size
+  end
+
+
+
+
+
+
   def new_game
+    session["intro"] = false
+
     word = ""
     while (word.size < 5 || word.size > 12) do
       word = File.readlines("5text.txt").sample.to_s.chomp

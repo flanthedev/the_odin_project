@@ -14,7 +14,7 @@
       background-position: center center;
       background-size: cover;
       background-attachment: fixed;
-      min-height: 650px;
+      min-height: 1000px;
       margin: 10px;
     }
     #messagediv, #hintdiv {
@@ -38,76 +38,99 @@
 
 </head>
 
-  <body>
-  <div class="text-center container">
+<body>
+<div class="text-center container">
 
-    <h1>hangman</h1>
-    <br />
-    <div class="well" id="paperdiv">
+<h1>hangman</h1><br />
+
+  <div class="well" id="paperdiv">
 
     <div id="messagediv">
       <h2><%= @message %></h2>
     </div>
 
-    <div id="picdiv">
-      <% if @wrong_guesses == 0 %>
-        <img src="/nowrong.png" />
-      <% elsif @wrong_guesses == 1 %>
-        <img src="/1wrong.png" />
-      <% elsif @wrong_guesses == 2 %>
-        <img src="/2wrong.png" />
-      <% elsif @wrong_guesses == 3 %>
-        <img src="/3wrong.png" />
-      <% elsif @wrong_guesses == 4 %>
-        <img src="/4wrong.png" />
-      <% elsif @wrong_guesses == 5 %>
-        <img src="/5wrong.png" />
-      <% else %>
-        <img src="/6wrong.png" />
-      <% end %>
-    </div>
-
-
-  <div id="hintdiv">
-    <% if !(@lose || @win) %>
-      <p><strong><%= @hint.split(//).join("  ") %></strong></p>
-      <p>wrong letters: (<%= @wrong_letters.join(", ") %>)</p>
-
-      <% if 6 - @wrong_guesses > 1 %>
-        <p>you have <strong><%= 6 - @wrong_guesses %></strong> guesses left</p>
-      <% else %>
-        <p>uh oh! you only have <strong><%= 6 - @wrong_guesses %></strong> guess left</p>
-      <% end %>
-  </div>
-        <p>
-          <form action="/" method="post">
-            <input type="text" name="guess" size="2" autofocus="autofocus">
-            <input type="submit" value="guess" class="btn btn-primary btn-lg" />
-          </form>
-        </p>
-
-      <% end %>
-
-      <% if @lose || @win %>
-        <div id="hintdiv"></div>
-        <form action="/" method="get">
-          <input type="submit" value="yes, please!" class="btn btn-lg btn-primary" autofocus="autofocus">
+  <!-- input word or select random word -->
+    <% if @intro %>
+      <div>
+        <form action='/word_input' method='get'>
+          <input type='text' name='word_input'>
+          <br /><br />
+          <input type='submit' value='submit this word' class='btn btn-lg btn-primary'>
         </form>
-      <% end %>
+        <br />
 
-    </div>
+        <h2>or choose a random word</h2><br />
+        <form action='/random_word' method='post'>
+          <input type='submit' value='random word' class='btn btn-lg btn-primary' name='random_word'>
+        </form>
+      </div>
+    <% end %>
 
-    <p>(The word is <%= @word %>)</p>
 
-    <h2>type a word to play your friend (close your eyes,friend)</h2>
-    <form action='/word_input' method='post'>
-      <input type='text' name='word_input'>
-      <input type='submit' value='submit this word' class='btn btn-primary'>
-    </form>
-    <h2>or choose a random word</h2>
-    <form action='/random_word' method='post'>
-      <input type='submit' value='random word' class='btn btn-primary' name='random_word'>
-    </form>
+
+
+<!-- image of scaffold and stickfigure -->
+    <% if !@intro %>
+      <div id="picdiv">
+        <% if @wrong_guesses == 0 %>
+          <img src="/nowrong.png" />
+        <% elsif @wrong_guesses == 1 %>
+          <img src="/1wrong.png" />
+        <% elsif @wrong_guesses == 2 %>
+          <img src="/2wrong.png" />
+        <% elsif @wrong_guesses == 3 %>
+          <img src="/3wrong.png" />
+        <% elsif @wrong_guesses == 4 %>
+          <img src="/4wrong.png" />
+        <% elsif @wrong_guesses == 5 %>
+          <img src="/5wrong.png" />
+        <% else %>
+          <img src="/6wrong.png" />
+        <% end %>
+      </div>
+    <% end %>
+
+<!-- the hint, letters, and guesses left -->
+    <% if !(@lose || @win || @intro) %>
+      <div id="hintdiv">
+
+        <p><strong><%= @hint.split(//).join("  ") %></strong></p>
+        <p>wrong letters: (<%= @wrong_letters.join(", ") %>)</p>
+
+        <% if 6 - @wrong_guesses > 1 %>
+          <p>you have <strong><%= 6 - @wrong_guesses %></strong> guesses left</p>
+        <% else %>
+          <p>uh oh! you only have <strong><%= 6 - @wrong_guesses %></strong> guess left</p>
+        <% end %>
+      </div>
+
+      <p>
+        <form action="/" method="post">
+          <input type="text" name="guess" size="2" autofocus="autofocus">
+          <input type="submit" value="guess" class="btn btn-primary btn-lg">
+        </form>
+        <br />
+        <form action='/choose_word' method="get">
+          <input type='submit' value='choose a new word' class='btn btn-primary btn-lg'>
+        </form>
+      </p>
+
+    <% end %>
+
+
+<!-- button to start a new game -->
+    <% if @lose || @win %>
+      <form action="/" method="get">
+        <input type="submit" value="yes, please!" class="btn btn-lg btn-primary" autofocus="autofocus">
+      </form>
+    <% end %>
+
+
+
+  </div>
+
+<p>(The word is <%= @word %>)</p>
+
 
   </div>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
