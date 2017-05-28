@@ -23,11 +23,23 @@ post "/" do
   erb :index
 end
 
+post '/cheat' do
+
+  @hint = session[:hint]
+  @wrong_letters = session[:wrong_letters]
+  @wrong_guesses = session[:wrong_guesses]
+  @word = session[:word]
+
+  @cheat = true
+  erb :index
+end
+
 get '/word_input' do
   update_session
 
   if params["word_input"] = params["word_input"][/[a-zA-Z]+{4,12}/]
     new_game_word_input
+    update_session
   else
     @message = "please choose a word 4 to 12 letters long and no numbers, punctuation, or symbols."
     @intro = true
@@ -52,6 +64,8 @@ post '/random_word' do
 end
 
 
+
+
 helpers do
 
   def update_session
@@ -62,6 +76,7 @@ helpers do
     @lose = session[:lose]
     @hint = session[:hint]
     @word = session[:word]
+    @cheat = session[:cheat]
 
     win_responses = ["you won! the word was #{@word}. play again, smartie pants?", "victory!!! #{@word}!!! new game?", "such skill! #{@word} was the word. play again?"]
     lose_responses = ["you lost, sorry. the word was #{@word}. play again?", "defeat... the word was #{@word}. new game?", "better luck next time. the word was #{@word}. play again?"]
@@ -85,6 +100,7 @@ helpers do
       session[:wrong_letters] = []
       session[:win] = false
       session[:lose] = false
+      session[:cheat] = false
       session[:hint] = "_" * @word.size
 
   end
@@ -113,6 +129,7 @@ helpers do
     session[:wrong_letters] = []
     session[:win] = false
     session[:lose] = false
+    session[:cheat] = false
     session[:hint] = "_" * @word.size
   end
 

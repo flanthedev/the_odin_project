@@ -117,6 +117,17 @@
 
     <% end %>
 
+<!-- cheat button -->
+      <% if !@intro %>
+      <p>
+        <form action='/cheat' method="post">
+          <input type='submit' value='cheat and show the word' class='btn btn-primary btn-lg'>
+        </form>
+      </p>
+      <% end %>
+      <% if @cheat %>
+        <p>(The word is <%= @word %>)</p>
+      <% end %>
 
 <!-- button to start a new game -->
     <% if (@lose || @win) && !@intro %>
@@ -127,7 +138,7 @@
 
   </div>
 
-<p>(The word is <%= @word %>)</p>
+
 
 
   </div>
