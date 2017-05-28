@@ -24,13 +24,15 @@ post "/" do
 end
 
 post '/cheat' do
-
+  @message = ["cheater!", "we're not all strong people.", "it's okay to feel bad about yourself", "all is fair in love and hangman", "oook what's the point of playing now?"].sample
   @hint = session[:hint]
   @wrong_letters = session[:wrong_letters]
   @wrong_guesses = session[:wrong_guesses]
   @word = session[:word]
 
   @cheat = true
+  session[:cheat] = @cheat
+
   erb :index
 end
 
@@ -80,10 +82,21 @@ helpers do
 
     win_responses = ["you won! the word was #{@word}. play again, smartie pants?", "victory!!! #{@word}!!! new game?", "such skill! #{@word} was the word. play again?"]
     lose_responses = ["you lost, sorry. the word was #{@word}. play again?", "defeat... the word was #{@word}. new game?", "better luck next time. the word was #{@word}. play again?"]
-    @message = win_responses.sample if @win
-    @message = lose_responses.sample if @lose
-  end
 
+    if @win
+      @message = win_responses.sample
+      if @cheat
+        @message += " ... even though you cheated ..."
+      end
+    end
+    if @lose
+      @message = lose_responses.sample
+      if @cheat
+        @message += " ... wait how did you cheat and STILL lose?!"
+      end
+    end
+
+  end
 
   def new_game_word_input
       session[:intro] = false
@@ -102,12 +115,12 @@ helpers do
       session[:lose] = false
       session[:cheat] = false
       session[:hint] = "_" * @word.size
-
   end
 
 
-
-
+def new_game_ref
+  session[:intro] = false
+end
 
 
   def new_game
@@ -119,7 +132,7 @@ helpers do
     end
     @word = word
 
-    begin_responses = ["let's play!", "your turn, friend!", "ok, take a guess!", "let's goooo!", "it's game time!", "game on!"]
+    begin_responses = ["let's play!", "your turn, friend!", "ok, take a guess!", "let's goooo!", "it's game time!", "game on!", "save this stick figure!", "death to the stick figure!"]
     @message = begin_responses.sample
 
     session[:message] = @message
