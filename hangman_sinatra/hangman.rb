@@ -46,10 +46,11 @@ end
 
 get '/choose_word' do
   session[:intro] = true
-  update_session
+  #update_session
+  intro_session
   @intro = session[:intro]
   @message = "type a word to play with your friend (close your eyes, friend)"
-
+  #intro_session
   erb :index
 end
 
@@ -67,13 +68,14 @@ end
 helpers do
 
   def intro_session
+
     @hint = "x"
     @wrong_letters = []
     @wrong_guesses = 0
 
 
     @intro = session[:intro]
-    session[:intro] = true
+    #session[:intro] = true
     @message = "type a word to play with your friend (close your eyes, friend)"
 
   end
