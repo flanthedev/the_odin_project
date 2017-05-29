@@ -18,21 +18,16 @@ end
 
 post '/cheat' do
   @message = ["cheater!", "we're not all strong people.", "it's okay to feel bad about yourself", "all is fair in love and hangman", "oook what's the point of playing now?"].sample
-  @hint = session[:hint]
-  @wrong_letters = session[:wrong_letters]
-  @wrong_guesses = session[:wrong_guesses]
-  @word = session[:word]
-
   @cheat = true
   session[:cheat] = @cheat
-
+  update_session
   erb :index
 end
 
 get '/word_input' do
   update_session
 
-  if params["word_input"] = params["word_input"][/[a-zA-Z]+{4,12}/]
+  if params["word_input"] == params["word_input"][/[a-zA-Z]{4,13}/]
     get_word_input
     new_game
     update_session
@@ -46,41 +41,30 @@ end
 
 get '/choose_word' do
   session[:intro] = true
-  #update_session
   intro_session
-  @intro = session[:intro]
   @message = "type a word to play with your friend (close your eyes, friend)"
-  #intro_session
   erb :index
 end
 
 post '/random_word' do
   get_word_random
   new_game
-
   update_session
   erb :index
 end
 
 
-
-
 helpers do
-
+#set variables and message to choose a word
   def intro_session
-
-    @hint = "x"
+    @hint = "_"
     @wrong_letters = []
     @wrong_guesses = 0
-
-
+    session[:intro] = true
     @intro = session[:intro]
-    #session[:intro] = true
     @message = "type a word to play with your friend (close your eyes, friend)"
-
   end
-
-
+#update variables and message when there is a new game, guess, or cheat
   def update_session
     @guessed = session[:guessed]
     @wrong_guesses = session[:wrong_guesses]
@@ -108,12 +92,12 @@ helpers do
     end
 
   end
-
+#get the word from user input
   def get_word_input
     @word = (params["word_input"]).upcase
     session[:word] = @word
   end
-
+#get the word from the text file
   def get_word_random
     word = ""
     while (word.size < 5 || word.size > 12) do
@@ -121,7 +105,7 @@ helpers do
     end
     @word = word
   end
-
+#start a game with variables, messages,
   def new_game
     session[:intro] = false
 
@@ -138,36 +122,40 @@ helpers do
     session[:cheat] = false
     session[:hint] = "_" * @word.size
   end
-
-
+#check if the letter is valid input, already guessed, or correct guess
   def check_guess
     correct_responses = ["you are inspirational", "breathtaking performance", "mark it down!", "you're like the Kobe of hangman", "you deserve a high-five", "dust that dirt off your shoulder", "hot as a kettle!", "whoop-deeee-doooo!", "you're soooo smart!", "good guess, Professor", "wow, you got it right!", "amazing guess!"]
     wrong_responses = ["atleast your mom loves you", "try, try again", "i believe in you! guess again.", "once more with passion!", "here we go again...", "ohhh snap :'(", "oops! wrong answer :-(", "sorry, try again!", "you're good at other things...", "please try again, for my sake", "you can do it! try again please!"]
     invalid_responses = ["invalid input. try again!", "try again with a letter", "gimme a letter!", "oops! :-/ invalid input", "once more with a new letter!", "i can only read letters", "letters pleeease, no symbols or numbers"]
     duplicate_guess_responses = ["you already guessed that letter, silly!", "try again with a new letter", "duplicate guess, pick another letter pleeease"]
-
-    if (params["guess"].size != 1 || !params["guess"].upcase.between?('A','Z'))
+    #must be one letter only
+    if !params["guess"].upcase.between?('A','Z')
       @message = invalid_responses.sample
+    elsif params["guess"].size > 1
+      @message = ["whoa whoa! one letter at a time", "slow down i can only take one letter"].sample
+    #if has already been guessed
     elsif (session[:guessed].include? (params["guess"].upcase))
       @message = duplicate_guess_responses.sample
+    #otherwise add it the array of already guessed
     else
       session[:guessed] << params["guess"].upcase
+      #it it is a wrong guess
       if !session[:word].include? params["guess"].upcase
         session[:wrong_letters] << params["guess"].upcase
         session[:wrong_guesses] += 1
         @message = wrong_responses.sample
-      else
-        word_array = session[:word].split(//)
-        word_array.size.times do |i|
-          if word_array[i] == params["guess"].upcase
-            session[:hint][i] = word_array[i]
+      else #if it is a right guess
+        word_ary = session[:word].split(//)
+        word_ary.size.times do |i|
+          if word_ary[i] == params["guess"].upcase
+            session[:hint][i] = word_ary[i]
             @message = correct_responses.sample
           end
         end
       end
     end
   end
-
+#check if too many wrong guesses
   def game_over?
     if session[:wrong_guesses] > 5
       session[:lose] = true

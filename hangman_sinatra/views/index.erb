@@ -18,13 +18,13 @@
       margin: 10px;
     }
     #messagediv, #hintdiv {
-      min-height: 120px;
+      min-height: 100px;
     }
     #picdiv {
       min-height: 310px;
     }
     input {
-      height: 90px;
+      height: 70px;
       font-size: 1.5em;
       vertical-align: bottom;
     }
@@ -55,13 +55,13 @@
         <form action='/word_input' method='get'>
           <input type='text' name='word_input'>
           <br /><br />
-          <input type='submit' value='submit this word' class='btn btn-lg btn-primary'>
+          <input type='submit' value='submit this word' class='btn btn-primary'>
         </form>
-        <br />
+        <br /><br /><br />
 
         <h2>or choose a random word</h2><br />
         <form action='/random_word' method='post'>
-          <input type='submit' value='random word' class='btn btn-lg btn-primary' name='random_word'>
+          <input type='submit' value='random word' class='btn btn-primary' name='random_word'>
         </form>
       </div>
     <% end %>
@@ -104,17 +104,17 @@
       <p>
         <form action="/" method="post">
           <input type="text" name="guess" size="2" autofocus="autofocus">
-          <input type="submit" value="guess" class="btn btn-primary btn-lg">
+          <input type="submit" value="guess" class="btn btn-primary">
         </form>
         <br />
         <form action='/choose_word' method="get">
-          <input type='submit' value='choose a new word' class='btn btn-primary btn-lg'>
+          <input type='submit' value='choose a new word' class='btn btn-primary'>
         </form>
       </p>
 
       <p>
         <form action='/cheat' method="post">
-          <input type='submit' value='cheat and show the word' class='btn btn-primary btn-lg'>
+          <input type='submit' value='cheat and show the word' class='btn btn-primary'>
         </form>
       </p>
 
@@ -128,7 +128,7 @@
 <!-- button to start a new game -->
     <% if (@lose || @win) && !@intro %>
       <form action="/choose_word" method="get">
-        <input type="submit" value="yes, please!" class="btn btn-lg btn-primary" autofocus="autofocus">
+        <input type="submit" value="yes, please!" class="btn btn-primary" autofocus="autofocus">
       </form>
     <% end %>
 
