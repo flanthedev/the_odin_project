@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <style>
+  body {
+    background: lightgray;
+  }
+  input {
+    height: 100px;
+    width: 100px;
+    background-color: Transparent;
+    outline: none;
+  }
+  form {
+    display: inline;
+  }
+  img {
+    margin: 2px 2px;
+  }
+  #tictactoegrid {
+    background-image: url('/tictactoegrid.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 320px;
+    height: 320px;
+    display: block;
+    margin: 0 auto;
+  }
+  #playagain {
+    border: 2px solid black;
+    border-radius: 50%;
+    margin: 10px;
+    padding: 10px;
+  }
+  </style>
+</head>
+<body>
+<div class="text-center">
+
+  <h1>tic tac toe</h1>
+  <p><small>made with ruby on sinatra</small>
+  <br /><br />
+
+<div class='container' class='text-center'>
+
+<% if @win == false %>
+  <div id="tictactoegrid">
+
+  <% if @s1 == 1 %>
+    <img src='/x1.png'>
+  <% elsif @s1 == 2 %>
+    <img src='/o1.png'>
+  <% else %>
+    <form action='/box2' method='get'>
+      <input type='submit' value='' name='box1' class='btn'>
+    </form>
+  <% end %>
+
+  <% if @s2 == 1 %>
+    <img src='/x2.png'>
+  <% elsif @s2 == 2 %>
+    <img src='/o2.png'>
+  <% else %>
+    <form action='/box2' method='get'>
+      <input type='submit' value='' name='box2' class='btn'>
+    </form>
+  <% end %>
+
+  <% if @s3 == 1 %>
+    <img src='/x3.png'>
+  <% elsif @s3 == 2 %>
+    <img src='/o3.png'>
+  <% else %>
+    <form action='/box3' method='get'>
+      <input type='submit' value='' name='box3' class='btn'>
+    </form>
+  <% end %>
+
+  <br />
+
+  <% if @s4 == 1 %>
+    <img src='/x3.png'>
+  <% elsif @s4 == 2 %>
+    <img src='/o3.png'>
+  <% else %>
+    <form action='/box4' method='get'>
+      <input type='submit' value='' name='box4' class='btn'>
+    </form>
+  <% end %>
+
+  <% if @s5 == 1 %>
+    <img src='/x1.png'>
+  <% elsif @s5 == 2 %>
+    <img src='/o1.png'>
+  <% else %>
+    <form action='/box5' method='get'>
+      <input type='submit' value='' name='box5' class='btn'>
+    </form>
+  <% end %>
+
+  <% if @s6 == 1 %>
+    <img src='/x2.png'>
+  <% elsif @s6 == 2 %>
+    <img src='/o2.png'>
+  <% else %>
+    <form action='/box6' method='get'>
+      <input type='submit' value='' name='box6' class='btn'>
+    </form>
+  <% end %>
+
+  <br />
+
+  <% if @s7 == 1 %>
+    <img src='/x2.png'>
+  <% elsif @s7 == 2 %>
+    <img src='/o2.png'>
+  <% else %>
+    <form action='/box7' method='get'>
+      <input type='submit' value='' name='box7' class='btn'>
+    </form>
+  <% end %>
+
+  <% if @s8 == 1 %>
+    <img src='/x3.png'>
+  <% elsif @s8 == 2 %>
+    <img src='/o3.png'>
+  <% else %>
+    <form action='/box8' method='get'>
+      <input type='submit' value='' name='box8' class='btn'>
+    </form>
+  <% end %>
+
+  <% if @s9 == 1 %>
+    <img src='/x1.png'>
+  <% elsif @s9 == 2 %>
+    <img src='/o1.png'>
+  <% else %>
+    <form action='/box9' method='get'>
+      <input type='submit' value='' name='box9' class='btn'>
+    </form>
+  <% end %>
+
+
+
+</div>
+<% end %>
+
+  <h2><%= @message %></h2>
+
+  <% if @win == true || @turn >= 10 %>
+    <form action='/' method='get'>
+      <input type='submit' value='play again?' name='new_game' class='btn' id='playagain'>
+    </form>
+  <% end %>
+
+
+
+
+</div>
+
+</body>
+</html>
