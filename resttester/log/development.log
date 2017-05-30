@@ -1,0 +1,870 @@
+Started GET "/" for 127.0.0.1 at 2017-05-29 13:08:45 +1000
+Processing by Rails::WelcomeController#index as */*
+  Rendering /home/chris/.rvm/gems/ruby-2.3.3/gems/railties-5.1.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/chris/.rvm/gems/ruby-2.3.3/gems/railties-5.1.1/lib/rails/templates/rails/welcome/index.html.erb (2.8ms)
+Completed 200 OK in 128ms (Views: 7.9ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2017-05-29 13:09:05 +1000
+  
+ActionController::RoutingError (uninitialized constant UsersController):
+  
+activesupport (5.1.1) lib/active_support/inflector/methods.rb:269:in `const_get'
+activesupport (5.1.1) lib/active_support/inflector/methods.rb:269:in `block in constantize'
+activesupport (5.1.1) lib/active_support/inflector/methods.rb:267:in `each'
+activesupport (5.1.1) lib/active_support/inflector/methods.rb:267:in `inject'
+activesupport (5.1.1) lib/active_support/inflector/methods.rb:267:in `constantize'
+actionpack (5.1.1) lib/action_dispatch/http/request.rb:82:in `controller_class'
+actionpack (5.1.1) lib/action_dispatch/routing/route_set.rb:43:in `controller'
+actionpack (5.1.1) lib/action_dispatch/routing/route_set.rb:29:in `serve'
+actionpack (5.1.1) lib/action_dispatch/journey/router.rb:46:in `block in serve'
+actionpack (5.1.1) lib/action_dispatch/journey/router.rb:33:in `each'
+actionpack (5.1.1) lib/action_dispatch/journey/router.rb:33:in `serve'
+actionpack (5.1.1) lib/action_dispatch/routing/route_set.rb:832:in `call'
+rack (2.0.3) lib/rack/etag.rb:25:in `call'
+rack (2.0.3) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.3) lib/rack/head.rb:12:in `call'
+rack (2.0.3) lib/rack/session/abstract/id.rb:232:in `context'
+rack (2.0.3) lib/rack/session/abstract/id.rb:226:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+activerecord (5.1.1) lib/active_record/migration.rb:556:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/callbacks.rb:26:in `block in call'
+activesupport (5.1.1) lib/active_support/callbacks.rb:97:in `run_callbacks'
+actionpack (5.1.1) lib/action_dispatch/middleware/callbacks.rb:24:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/debug_exceptions.rb:59:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.1) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.1) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.1) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.1) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.1) lib/rails/engine.rb:522:in `call'
+puma (3.8.2) lib/puma/configuration.rb:224:in `call'
+puma (3.8.2) lib/puma/server.rb:600:in `handle_request'
+puma (3.8.2) lib/puma/server.rb:435:in `process_client'
+puma (3.8.2) lib/puma/server.rb:299:in `block in run'
+puma (3.8.2) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/users" for 127.0.0.1 at 2017-05-29 13:12:12 +1000
+  
+SyntaxError (/home/chris/projects/the_odin_project/rest-tester/app/controllers/users_controller.rb:1: syntax error, unexpected <<
+class UsersController << ApplicationController
+                        ^):
+  
+app/controllers/users_controller.rb:1: syntax error, unexpected <<
+Started GET "/users" for 127.0.0.1 at 2017-05-29 13:13:34 +1000
+  
+SyntaxError (/home/chris/projects/the_odin_project/rest-tester/app/controllers/users_controller.rb:1: syntax error, unexpected <<
+class UsersController << ApplicationController
+                        ^):
+  
+app/controllers/users_controller.rb:1: syntax error, unexpected <<
+Started GET "/users" for 127.0.0.1 at 2017-05-29 13:15:10 +1000
+Processing by UsersController#index as */*
+No template found for UsersController#index, rendering head :no_content
+Completed 204 No Content in 12ms
+
+
+Started GET "/users" for 127.0.0.1 at 2017-05-29 13:16:33 +1000
+Processing by UsersController#index as */*
+  Rendering users/index.html within layouts/application
+  Rendered users/index.html within layouts/application (0.2ms)
+Completed 200 OK in 151ms (Views: 147.5ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2017-05-29 13:17:50 +1000
+Processing by UsersController#index as */*
+  Rendering users/index.html within layouts/application
+  Rendered users/index.html within layouts/application (0.2ms)
+Completed 200 OK in 14ms (Views: 10.5ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2017-05-29 13:22:03 +1000
+Processing by UsersController#index as */*
+  Rendering users/index.html within layouts/application
+  Rendered users/index.html within layouts/application (0.2ms)
+Completed 200 OK in 14ms (Views: 10.8ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2017-05-29 13:22:27 +1000
+Processing by UsersController#index as */*
+  Rendering users/index.html within layouts/application
+  Rendered users/index.html within layouts/application (0.2ms)
+Completed 200 OK in 13ms (Views: 10.7ms)
+
+
+Started GET "/new_user" for 127.0.0.1 at 2017-05-29 13:22:27 +1000
+  
+ActionController::RoutingError (No route matches [GET] "/new_user"):
+  
+actionpack (5.1.1) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.1) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.1) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.1) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.1) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.1) lib/rails/engine.rb:522:in `call'
+puma (3.8.2) lib/puma/configuration.rb:224:in `call'
+puma (3.8.2) lib/puma/server.rb:600:in `handle_request'
+puma (3.8.2) lib/puma/server.rb:435:in `process_client'
+puma (3.8.2) lib/puma/server.rb:299:in `block in run'
+puma (3.8.2) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/users" for 127.0.0.1 at 2017-05-29 13:23:22 +1000
+Processing by UsersController#index as */*
+  Rendering users/index.html within layouts/application
+  Rendered users/index.html within layouts/application (0.2ms)
+Completed 200 OK in 15ms (Views: 12.0ms)
+
+
+Started GET "/new_user" for 127.0.0.1 at 2017-05-29 13:23:22 +1000
+  
+ActionController::RoutingError (No route matches [GET] "/new_user"):
+  
+actionpack (5.1.1) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.1) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.1) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.1) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.1) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.1) lib/rails/engine.rb:522:in `call'
+puma (3.8.2) lib/puma/configuration.rb:224:in `call'
+puma (3.8.2) lib/puma/server.rb:600:in `handle_request'
+puma (3.8.2) lib/puma/server.rb:435:in `process_client'
+puma (3.8.2) lib/puma/server.rb:299:in `block in run'
+puma (3.8.2) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/users" for 127.0.0.1 at 2017-05-29 13:24:17 +1000
+Processing by UsersController#index as */*
+  Rendering users/index.html within layouts/application
+  Rendered users/index.html within layouts/application (0.3ms)
+Completed 200 OK in 16ms (Views: 13.0ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2017-05-29 13:24:17 +1000
+Processing by UsersController#new as */*
+No template found for UsersController#new, rendering head :no_content
+Completed 204 No Content in 14ms
+
+
+Started GET "/users" for 127.0.0.1 at 2017-05-29 13:25:25 +1000
+Processing by UsersController#index as */*
+  Rendering users/index.html within layouts/application
+  Rendered users/index.html within layouts/application (0.3ms)
+Completed 200 OK in 17ms (Views: 14.2ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2017-05-29 13:25:25 +1000
+Processing by UsersController#new as */*
+No template found for UsersController#new, rendering head :no_content
+Completed 204 No Content in 14ms
+
+
+Started GET "/users" for 127.0.0.1 at 2017-05-29 13:26:21 +1000
+Processing by UsersController#index as */*
+  Rendering users/index.html within layouts/application
+  Rendered users/index.html within layouts/application (0.2ms)
+Completed 200 OK in 14ms (Views: 11.0ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2017-05-29 13:26:21 +1000
+Processing by UsersController#new as */*
+  Rendering users/new.html within layouts/application
+  Rendered users/new.html within layouts/application (0.2ms)
+Completed 200 OK in 16ms (Views: 13.0ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2017-05-29 13:27:30 +1000
+Processing by UsersController#index as */*
+  Rendering users/index.html within layouts/application
+  Rendered users/index.html within layouts/application (0.2ms)
+Completed 200 OK in 15ms (Views: 12.6ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2017-05-29 13:27:30 +1000
+Processing by UsersController#new as */*
+  Rendering users/new.html within layouts/application
+  Rendered users/new.html within layouts/application (0.5ms)
+Completed 200 OK in 20ms (Views: 16.3ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2017-05-29 13:27:46 +1000
+Processing by UsersController#index as */*
+  Rendering users/index.html within layouts/application
+  Rendered users/index.html within layouts/application (0.4ms)
+Completed 200 OK in 15ms (Views: 12.6ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2017-05-29 13:27:46 +1000
+Processing by UsersController#new as */*
+  Rendering users/new.html within layouts/application
+  Rendered users/new.html within layouts/application (0.2ms)
+Completed 200 OK in 16ms (Views: 13.5ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2017-05-29 13:29:18 +1000
+Processing by UsersController#index as */*
+  Rendering users/index.html within layouts/application
+  Rendered users/index.html within layouts/application (0.2ms)
+Completed 200 OK in 19ms (Views: 15.8ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2017-05-29 13:29:18 +1000
+Processing by UsersController#new as */*
+  Rendering users/new.html within layouts/application
+  Rendered users/new.html within layouts/application (0.5ms)
+Completed 200 OK in 18ms (Views: 14.8ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2017-05-29 13:29:46 +1000
+Processing by UsersController#index as */*
+  Rendering users/index.html within layouts/application
+  Rendered users/index.html within layouts/application (0.2ms)
+Completed 200 OK in 14ms (Views: 10.7ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2017-05-29 13:29:46 +1000
+Processing by UsersController#new as */*
+  Rendering users/new.html within layouts/application
+  Rendered users/new.html within layouts/application (0.2ms)
+Completed 200 OK in 13ms (Views: 10.1ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2017-05-29 13:30:26 +1000
+Processing by UsersController#index as */*
+  Rendering users/index.html within layouts/application
+  Rendered users/index.html within layouts/application (0.2ms)
+Completed 200 OK in 13ms (Views: 10.7ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2017-05-29 13:30:26 +1000
+Processing by UsersController#new as */*
+  Rendering users/new.html within layouts/application
+  Rendered users/new.html within layouts/application (0.2ms)
+Completed 200 OK in 13ms (Views: 10.2ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2017-05-29 13:31:46 +1000
+Processing by UsersController#index as */*
+  Rendering users/index.html within layouts/application
+  Rendered users/index.html within layouts/application (0.3ms)
+Completed 200 OK in 13ms (Views: 10.2ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2017-05-29 13:31:46 +1000
+Processing by UsersController#new as */*
+  Rendering users/new.html within layouts/application
+  Rendered users/new.html within layouts/application (0.2ms)
+Completed 200 OK in 13ms (Views: 10.3ms)
+
+
+Started GET "/users/:id/edit" for 127.0.0.1 at 2017-05-29 13:31:46 +1000
+  
+AbstractController::ActionNotFound (The action 'edit' could not be found for UsersController):
+  
+actionpack (5.1.1) lib/abstract_controller/base.rb:119:in `process'
+actionview (5.1.1) lib/action_view/rendering.rb:30:in `process'
+actionpack (5.1.1) lib/action_controller/metal.rb:189:in `dispatch'
+actionpack (5.1.1) lib/action_controller/metal.rb:253:in `dispatch'
+actionpack (5.1.1) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (5.1.1) lib/action_dispatch/routing/route_set.rb:31:in `serve'
+actionpack (5.1.1) lib/action_dispatch/journey/router.rb:46:in `block in serve'
+actionpack (5.1.1) lib/action_dispatch/journey/router.rb:33:in `each'
+actionpack (5.1.1) lib/action_dispatch/journey/router.rb:33:in `serve'
+actionpack (5.1.1) lib/action_dispatch/routing/route_set.rb:832:in `call'
+rack (2.0.3) lib/rack/etag.rb:25:in `call'
+rack (2.0.3) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.3) lib/rack/head.rb:12:in `call'
+rack (2.0.3) lib/rack/session/abstract/id.rb:232:in `context'
+rack (2.0.3) lib/rack/session/abstract/id.rb:226:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+activerecord (5.1.1) lib/active_record/migration.rb:556:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/callbacks.rb:26:in `block in call'
+activesupport (5.1.1) lib/active_support/callbacks.rb:97:in `run_callbacks'
+actionpack (5.1.1) lib/action_dispatch/middleware/callbacks.rb:24:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/debug_exceptions.rb:59:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.1) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.1) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.1) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.1) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.1) lib/rails/engine.rb:522:in `call'
+puma (3.8.2) lib/puma/configuration.rb:224:in `call'
+puma (3.8.2) lib/puma/server.rb:600:in `handle_request'
+puma (3.8.2) lib/puma/server.rb:435:in `process_client'
+puma (3.8.2) lib/puma/server.rb:299:in `block in run'
+puma (3.8.2) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/users" for 127.0.0.1 at 2017-05-29 13:32:04 +1000
+Processing by UsersController#index as */*
+  Rendering users/index.html within layouts/application
+  Rendered users/index.html within layouts/application (0.2ms)
+Completed 200 OK in 13ms (Views: 10.2ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2017-05-29 13:32:04 +1000
+Processing by UsersController#new as */*
+  Rendering users/new.html within layouts/application
+  Rendered users/new.html within layouts/application (0.2ms)
+Completed 200 OK in 13ms (Views: 10.2ms)
+
+
+Started GET "/users/:id/edit" for 127.0.0.1 at 2017-05-29 13:32:04 +1000
+Processing by UsersController#edit as */*
+  Parameters: {"id"=>":id"}
+No template found for UsersController#edit, rendering head :no_content
+Completed 204 No Content in 14ms
+
+
+Started GET "/users" for 127.0.0.1 at 2017-05-29 13:32:56 +1000
+Processing by UsersController#index as */*
+  Rendering users/index.html within layouts/application
+  Rendered users/index.html within layouts/application (0.2ms)
+Completed 200 OK in 12ms (Views: 9.8ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2017-05-29 13:32:56 +1000
+Processing by UsersController#new as */*
+  Rendering users/new.html within layouts/application
+  Rendered users/new.html within layouts/application (0.2ms)
+Completed 200 OK in 13ms (Views: 10.5ms)
+
+
+Started GET "/users/:id/edit" for 127.0.0.1 at 2017-05-29 13:32:56 +1000
+Processing by UsersController#edit as */*
+  Parameters: {"id"=>":id"}
+  Rendering users/edit.html within layouts/application
+  Rendered users/edit.html within layouts/application (0.2ms)
+Completed 200 OK in 13ms (Views: 9.9ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2017-05-29 13:33:42 +1000
+Processing by UsersController#index as */*
+  Rendering users/index.html within layouts/application
+  Rendered users/index.html within layouts/application (0.2ms)
+Completed 200 OK in 13ms (Views: 9.7ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2017-05-29 13:33:42 +1000
+Processing by UsersController#new as */*
+  Rendering users/new.html within layouts/application
+  Rendered users/new.html within layouts/application (0.2ms)
+Completed 200 OK in 12ms (Views: 9.8ms)
+
+
+Started GET "/users/:id/edit" for 127.0.0.1 at 2017-05-29 13:33:42 +1000
+Processing by UsersController#edit as */*
+  Parameters: {"id"=>":id"}
+  Rendering users/edit.html within layouts/application
+  Rendered users/edit.html within layouts/application (0.2ms)
+Completed 200 OK in 13ms (Views: 10.0ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2017-05-29 13:34:07 +1000
+Processing by UsersController#index as */*
+  Rendering users/index.html within layouts/application
+  Rendered users/index.html within layouts/application (0.2ms)
+Completed 200 OK in 13ms (Views: 10.5ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2017-05-29 13:34:07 +1000
+Processing by UsersController#new as */*
+  Rendering users/new.html within layouts/application
+  Rendered users/new.html within layouts/application (0.2ms)
+Completed 200 OK in 13ms (Views: 10.2ms)
+
+
+Started GET "/users/:id/edit" for 127.0.0.1 at 2017-05-29 13:34:07 +1000
+Processing by UsersController#edit as */*
+  Parameters: {"id"=>":id"}
+  Rendering users/edit.html within layouts/application
+  Rendered users/edit.html within layouts/application (0.2ms)
+Completed 200 OK in 13ms (Views: 9.9ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2017-05-29 13:35:22 +1000
+Processing by UsersController#index as */*
+  Rendering users/index.html within layouts/application
+  Rendered users/index.html within layouts/application (0.2ms)
+Completed 200 OK in 13ms (Views: 10.4ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2017-05-29 13:35:22 +1000
+Processing by UsersController#new as */*
+  Rendering users/new.html within layouts/application
+  Rendered users/new.html within layouts/application (0.2ms)
+Completed 200 OK in 12ms (Views: 9.8ms)
+
+
+Started GET "/users/:id/edit" for 127.0.0.1 at 2017-05-29 13:35:22 +1000
+Processing by UsersController#edit as */*
+  Parameters: {"id"=>":id"}
+  Rendering users/edit.html within layouts/application
+  Rendered users/edit.html within layouts/application (0.2ms)
+Completed 200 OK in 12ms (Views: 9.8ms)
+
+
+Started GET "/users/:id" for 127.0.0.1 at 2017-05-29 13:35:22 +1000
+  
+AbstractController::ActionNotFound (The action 'show' could not be found for UsersController):
+  
+actionpack (5.1.1) lib/abstract_controller/base.rb:119:in `process'
+actionview (5.1.1) lib/action_view/rendering.rb:30:in `process'
+actionpack (5.1.1) lib/action_controller/metal.rb:189:in `dispatch'
+actionpack (5.1.1) lib/action_controller/metal.rb:253:in `dispatch'
+actionpack (5.1.1) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (5.1.1) lib/action_dispatch/routing/route_set.rb:31:in `serve'
+actionpack (5.1.1) lib/action_dispatch/journey/router.rb:46:in `block in serve'
+actionpack (5.1.1) lib/action_dispatch/journey/router.rb:33:in `each'
+actionpack (5.1.1) lib/action_dispatch/journey/router.rb:33:in `serve'
+actionpack (5.1.1) lib/action_dispatch/routing/route_set.rb:832:in `call'
+rack (2.0.3) lib/rack/etag.rb:25:in `call'
+rack (2.0.3) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.3) lib/rack/head.rb:12:in `call'
+rack (2.0.3) lib/rack/session/abstract/id.rb:232:in `context'
+rack (2.0.3) lib/rack/session/abstract/id.rb:226:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+activerecord (5.1.1) lib/active_record/migration.rb:556:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/callbacks.rb:26:in `block in call'
+activesupport (5.1.1) lib/active_support/callbacks.rb:97:in `run_callbacks'
+actionpack (5.1.1) lib/action_dispatch/middleware/callbacks.rb:24:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/debug_exceptions.rb:59:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.1) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.1) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.1) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.1) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.1) lib/rails/engine.rb:522:in `call'
+puma (3.8.2) lib/puma/configuration.rb:224:in `call'
+puma (3.8.2) lib/puma/server.rb:600:in `handle_request'
+puma (3.8.2) lib/puma/server.rb:435:in `process_client'
+puma (3.8.2) lib/puma/server.rb:299:in `block in run'
+puma (3.8.2) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/users" for 127.0.0.1 at 2017-05-29 13:35:37 +1000
+Processing by UsersController#index as */*
+  Rendering users/index.html within layouts/application
+  Rendered users/index.html within layouts/application (0.2ms)
+Completed 200 OK in 13ms (Views: 10.2ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2017-05-29 13:35:38 +1000
+Processing by UsersController#new as */*
+  Rendering users/new.html within layouts/application
+  Rendered users/new.html within layouts/application (0.2ms)
+Completed 200 OK in 13ms (Views: 10.1ms)
+
+
+Started GET "/users/:id/edit" for 127.0.0.1 at 2017-05-29 13:35:38 +1000
+Processing by UsersController#edit as */*
+  Parameters: {"id"=>":id"}
+  Rendering users/edit.html within layouts/application
+  Rendered users/edit.html within layouts/application (0.2ms)
+Completed 200 OK in 12ms (Views: 9.8ms)
+
+
+Started GET "/users/:id" for 127.0.0.1 at 2017-05-29 13:35:38 +1000
+Processing by UsersController#show as */*
+  Parameters: {"id"=>":id"}
+No template found for UsersController#show, rendering head :no_content
+Completed 204 No Content in 14ms
+
+
+Started GET "/users" for 127.0.0.1 at 2017-05-29 13:36:10 +1000
+Processing by UsersController#index as */*
+  Rendering users/index.html within layouts/application
+  Rendered users/index.html within layouts/application (0.2ms)
+Completed 200 OK in 13ms (Views: 10.4ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2017-05-29 13:36:10 +1000
+Processing by UsersController#new as */*
+  Rendering users/new.html within layouts/application
+  Rendered users/new.html within layouts/application (0.2ms)
+Completed 200 OK in 13ms (Views: 10.4ms)
+
+
+Started GET "/users/:id/edit" for 127.0.0.1 at 2017-05-29 13:36:10 +1000
+Processing by UsersController#edit as */*
+  Parameters: {"id"=>":id"}
+  Rendering users/edit.html within layouts/application
+  Rendered users/edit.html within layouts/application (0.2ms)
+Completed 200 OK in 13ms (Views: 10.0ms)
+
+
+Started GET "/users/:id" for 127.0.0.1 at 2017-05-29 13:36:10 +1000
+Processing by UsersController#show as */*
+  Parameters: {"id"=>":id"}
+  Rendering users/show.html within layouts/application
+  Rendered users/show.html within layouts/application (0.2ms)
+Completed 200 OK in 13ms (Views: 10.3ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2017-05-29 13:38:21 +1000
+Processing by UsersController#index as */*
+  Rendering users/index.html within layouts/application
+  Rendered users/index.html within layouts/application (0.2ms)
+Completed 200 OK in 13ms (Views: 10.2ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2017-05-29 13:38:21 +1000
+Processing by UsersController#new as */*
+  Rendering users/new.html within layouts/application
+  Rendered users/new.html within layouts/application (0.2ms)
+Completed 200 OK in 13ms (Views: 9.9ms)
+
+
+Started GET "/users/:id/edit" for 127.0.0.1 at 2017-05-29 13:38:21 +1000
+Processing by UsersController#edit as */*
+  Parameters: {"id"=>":id"}
+  Rendering users/edit.html within layouts/application
+  Rendered users/edit.html within layouts/application (0.2ms)
+Completed 200 OK in 13ms (Views: 9.9ms)
+
+
+Started GET "/users/:id" for 127.0.0.1 at 2017-05-29 13:38:21 +1000
+Processing by UsersController#show as */*
+  Parameters: {"id"=>":id"}
+  Rendering users/show.html within layouts/application
+  Rendered users/show.html within layouts/application (0.2ms)
+Completed 200 OK in 14ms (Views: 10.1ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2017-05-29 13:38:21 +1000
+  
+AbstractController::ActionNotFound (The action 'create' could not be found for UsersController):
+  
+actionpack (5.1.1) lib/abstract_controller/base.rb:119:in `process'
+actionview (5.1.1) lib/action_view/rendering.rb:30:in `process'
+actionpack (5.1.1) lib/action_controller/metal.rb:189:in `dispatch'
+actionpack (5.1.1) lib/action_controller/metal.rb:253:in `dispatch'
+actionpack (5.1.1) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (5.1.1) lib/action_dispatch/routing/route_set.rb:31:in `serve'
+actionpack (5.1.1) lib/action_dispatch/journey/router.rb:46:in `block in serve'
+actionpack (5.1.1) lib/action_dispatch/journey/router.rb:33:in `each'
+actionpack (5.1.1) lib/action_dispatch/journey/router.rb:33:in `serve'
+actionpack (5.1.1) lib/action_dispatch/routing/route_set.rb:832:in `call'
+rack (2.0.3) lib/rack/etag.rb:25:in `call'
+rack (2.0.3) lib/rack/conditional_get.rb:38:in `call'
+rack (2.0.3) lib/rack/head.rb:12:in `call'
+rack (2.0.3) lib/rack/session/abstract/id.rb:232:in `context'
+rack (2.0.3) lib/rack/session/abstract/id.rb:226:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+activerecord (5.1.1) lib/active_record/migration.rb:556:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/callbacks.rb:26:in `block in call'
+activesupport (5.1.1) lib/active_support/callbacks.rb:97:in `run_callbacks'
+actionpack (5.1.1) lib/action_dispatch/middleware/callbacks.rb:24:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/debug_exceptions.rb:59:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.1) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.1) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.1) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.1) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.1) lib/rails/engine.rb:522:in `call'
+puma (3.8.2) lib/puma/configuration.rb:224:in `call'
+puma (3.8.2) lib/puma/server.rb:600:in `handle_request'
+puma (3.8.2) lib/puma/server.rb:435:in `process_client'
+puma (3.8.2) lib/puma/server.rb:299:in `block in run'
+puma (3.8.2) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/users" for 127.0.0.1 at 2017-05-29 13:39:26 +1000
+Processing by UsersController#index as */*
+  Rendering users/index.html within layouts/application
+  Rendered users/index.html within layouts/application (0.2ms)
+Completed 200 OK in 13ms (Views: 10.3ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2017-05-29 13:39:26 +1000
+Processing by UsersController#new as */*
+  Rendering users/new.html within layouts/application
+  Rendered users/new.html within layouts/application (0.2ms)
+Completed 200 OK in 14ms (Views: 10.4ms)
+
+
+Started GET "/users/:id/edit" for 127.0.0.1 at 2017-05-29 13:39:26 +1000
+Processing by UsersController#edit as */*
+  Parameters: {"id"=>":id"}
+  Rendering users/edit.html within layouts/application
+  Rendered users/edit.html within layouts/application (0.2ms)
+Completed 200 OK in 14ms (Views: 10.7ms)
+
+
+Started GET "/users/:id" for 127.0.0.1 at 2017-05-29 13:39:26 +1000
+Processing by UsersController#show as */*
+  Parameters: {"id"=>":id"}
+  Rendering users/show.html within layouts/application
+  Rendered users/show.html within layouts/application (0.3ms)
+Completed 200 OK in 14ms (Views: 11.2ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2017-05-29 13:39:26 +1000
+Processing by UsersController#create as */*
+Can't verify CSRF token authenticity.
+Completed 422 Unprocessable Entity in 0ms
+
+
+  
+ActionController::InvalidAuthenticityToken (ActionController::InvalidAuthenticityToken):
+  
+actionpack (5.1.1) lib/action_controller/metal/request_forgery_protection.rb:195:in `handle_unverified_request'
+actionpack (5.1.1) lib/action_controller/metal/request_forgery_protection.rb:227:in `handle_unverified_request'
+actionpack (5.1.1) lib/action_controller/metal/request_forgery_protection.rb:222:in `verify_authenticity_token'
+activesupport (5.1.1) lib/active_support/callbacks.rb:413:in `block in make_lambda'
+activesupport (5.1.1) lib/active_support/callbacks.rb:197:in `block (2 levels) in halting'
+actionpack (5.1.1) lib/abstract_controller/callbacks.rb:12:in `block (2 levels) in <module:Callbacks>'
+activesupport (5.1.1) lib/active_support/callbacks.rb:198:in `block in halting'
+activesupport (5.1.1) lib/active_support/callbacks.rb:507:in `block in invoke_before'
+activesupport (5.1.1) lib/active_support/callbacks.rb:507:in `each'
+activesupport (5.1.1) lib/active_support/callbacks.rb:507:in `invoke_before'
+activesupport (5.1.1) lib/active_support/callbacks.rb:130:in `run_callbacks'
+actionpack (5.1.1) lib/abstract_controller/callbacks.rb:19:in `process_action'
+actionpack (5.1.1) lib/action_controller/metal/rescue.rb:20:in `process_action'
+actionpack (5.1.1) lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
+activesupport (5.1.1) lib/active_support/notifications.rb:166:in `block in instrument'
+activesupport (5.1.1) lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+activesupport (5.1.1) lib/active_support/notifications.rb:166:in `instrument'
+actionpack (5.1.1) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+actionpack (5.1.1) lib/action_controller/metal/params_wrapper.rb:252:in `process_action'
+activerecord (5.1.1) lib/active_record/railties/controller_runtime.rb:22:in `process_action'
+actionpack (5.1.1) lib/abstract_controller/base.rb:124:in `process'
+actionview (5.1.1) lib/action_view/rendering.rb:30:in `process'
+actionpack (5.1.1) lib/action_controller/metal.rb:189:in `dispatch'
+actionpack (5.1.1) lib/action_controller/metal.rb:253:in `dispatch'
+actionpack (5.1.1) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (5.1.1) lib/action_dispatch/routing/route_set.rb:31:in `serve'
+actionpack (5.1.1) lib/action_dispatch/journey/router.rb:46:in `block in serve'
+actionpack (5.1.1) lib/action_dispatch/journey/router.rb:33:in `each'
+actionpack (5.1.1) lib/action_dispatch/journey/router.rb:33:in `serve'
+actionpack (5.1.1) lib/action_dispatch/routing/route_set.rb:832:in `call'
+rack (2.0.3) lib/rack/etag.rb:25:in `call'
+rack (2.0.3) lib/rack/conditional_get.rb:38:in `call'
+rack (2.0.3) lib/rack/head.rb:12:in `call'
+rack (2.0.3) lib/rack/session/abstract/id.rb:232:in `context'
+rack (2.0.3) lib/rack/session/abstract/id.rb:226:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+activerecord (5.1.1) lib/active_record/migration.rb:556:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/callbacks.rb:26:in `block in call'
+activesupport (5.1.1) lib/active_support/callbacks.rb:97:in `run_callbacks'
+actionpack (5.1.1) lib/action_dispatch/middleware/callbacks.rb:24:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/debug_exceptions.rb:59:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.1) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.1) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.1) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.1) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.1) lib/rails/engine.rb:522:in `call'
+puma (3.8.2) lib/puma/configuration.rb:224:in `call'
+puma (3.8.2) lib/puma/server.rb:600:in `handle_request'
+puma (3.8.2) lib/puma/server.rb:435:in `process_client'
+puma (3.8.2) lib/puma/server.rb:299:in `block in run'
+puma (3.8.2) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/users" for 127.0.0.1 at 2017-05-29 13:42:17 +1000
+Processing by UsersController#index as */*
+  Rendering users/index.html within layouts/application
+  Rendered users/index.html within layouts/application (0.3ms)
+Completed 200 OK in 14ms (Views: 11.2ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2017-05-29 13:42:17 +1000
+Processing by UsersController#new as */*
+  Rendering users/new.html within layouts/application
+  Rendered users/new.html within layouts/application (0.3ms)
+Completed 200 OK in 15ms (Views: 11.6ms)
+
+
+Started GET "/users/:id/edit" for 127.0.0.1 at 2017-05-29 13:42:17 +1000
+Processing by UsersController#edit as */*
+  Parameters: {"id"=>":id"}
+  Rendering users/edit.html within layouts/application
+  Rendered users/edit.html within layouts/application (0.2ms)
+Completed 200 OK in 16ms (Views: 12.5ms)
+
+
+Started GET "/users/:id" for 127.0.0.1 at 2017-05-29 13:42:17 +1000
+Processing by UsersController#show as */*
+  Parameters: {"id"=>":id"}
+  Rendering users/show.html within layouts/application
+  Rendered users/show.html within layouts/application (0.2ms)
+Completed 200 OK in 15ms (Views: 11.1ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2017-05-29 13:42:17 +1000
+Processing by UsersController#create as */*
+Can't verify CSRF token authenticity.
+Completed 422 Unprocessable Entity in 1ms
+
+
+  
+ActionController::InvalidAuthenticityToken (ActionController::InvalidAuthenticityToken):
+  
+actionpack (5.1.1) lib/action_controller/metal/request_forgery_protection.rb:195:in `handle_unverified_request'
+actionpack (5.1.1) lib/action_controller/metal/request_forgery_protection.rb:227:in `handle_unverified_request'
+actionpack (5.1.1) lib/action_controller/metal/request_forgery_protection.rb:222:in `verify_authenticity_token'
+activesupport (5.1.1) lib/active_support/callbacks.rb:413:in `block in make_lambda'
+activesupport (5.1.1) lib/active_support/callbacks.rb:197:in `block (2 levels) in halting'
+actionpack (5.1.1) lib/abstract_controller/callbacks.rb:12:in `block (2 levels) in <module:Callbacks>'
+activesupport (5.1.1) lib/active_support/callbacks.rb:198:in `block in halting'
+activesupport (5.1.1) lib/active_support/callbacks.rb:507:in `block in invoke_before'
+activesupport (5.1.1) lib/active_support/callbacks.rb:507:in `each'
+activesupport (5.1.1) lib/active_support/callbacks.rb:507:in `invoke_before'
+activesupport (5.1.1) lib/active_support/callbacks.rb:130:in `run_callbacks'
+actionpack (5.1.1) lib/abstract_controller/callbacks.rb:19:in `process_action'
+actionpack (5.1.1) lib/action_controller/metal/rescue.rb:20:in `process_action'
+actionpack (5.1.1) lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
+activesupport (5.1.1) lib/active_support/notifications.rb:166:in `block in instrument'
+activesupport (5.1.1) lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+activesupport (5.1.1) lib/active_support/notifications.rb:166:in `instrument'
+actionpack (5.1.1) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+actionpack (5.1.1) lib/action_controller/metal/params_wrapper.rb:252:in `process_action'
+activerecord (5.1.1) lib/active_record/railties/controller_runtime.rb:22:in `process_action'
+actionpack (5.1.1) lib/abstract_controller/base.rb:124:in `process'
+actionview (5.1.1) lib/action_view/rendering.rb:30:in `process'
+actionpack (5.1.1) lib/action_controller/metal.rb:189:in `dispatch'
+actionpack (5.1.1) lib/action_controller/metal.rb:253:in `dispatch'
+actionpack (5.1.1) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (5.1.1) lib/action_dispatch/routing/route_set.rb:31:in `serve'
+actionpack (5.1.1) lib/action_dispatch/journey/router.rb:46:in `block in serve'
+actionpack (5.1.1) lib/action_dispatch/journey/router.rb:33:in `each'
+actionpack (5.1.1) lib/action_dispatch/journey/router.rb:33:in `serve'
+actionpack (5.1.1) lib/action_dispatch/routing/route_set.rb:832:in `call'
+rack (2.0.3) lib/rack/etag.rb:25:in `call'
+rack (2.0.3) lib/rack/conditional_get.rb:38:in `call'
+rack (2.0.3) lib/rack/head.rb:12:in `call'
+rack (2.0.3) lib/rack/session/abstract/id.rb:232:in `context'
+rack (2.0.3) lib/rack/session/abstract/id.rb:226:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+activerecord (5.1.1) lib/active_record/migration.rb:556:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/callbacks.rb:26:in `block in call'
+activesupport (5.1.1) lib/active_support/callbacks.rb:97:in `run_callbacks'
+actionpack (5.1.1) lib/action_dispatch/middleware/callbacks.rb:24:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/debug_exceptions.rb:59:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.1) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.1) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.1) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.1) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.1) lib/rails/engine.rb:522:in `call'
+puma (3.8.2) lib/puma/configuration.rb:224:in `call'
+puma (3.8.2) lib/puma/server.rb:600:in `handle_request'
+puma (3.8.2) lib/puma/server.rb:435:in `process_client'
+puma (3.8.2) lib/puma/server.rb:299:in `block in run'
+puma (3.8.2) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
