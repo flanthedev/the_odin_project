@@ -14,14 +14,17 @@
       background-position: center center;
       background-size: cover;
       background-attachment: fixed;
-      min-height: 1000px;
+      min-height: 800px;
       margin: 10px;
     }
     #messagediv, #hintdiv {
-      min-height: 100px;
+      min-height: 80px;
     }
     #picdiv {
       min-height: 310px;
+    }
+    form {
+      display: inline;
     }
     input {
       height: 70px;
@@ -47,6 +50,7 @@
 
     <div id="messagediv">
       <h2><%= @message %></h2>
+
     </div>
 
 <!-- input word or select random word -->
@@ -68,7 +72,8 @@
 
 <!-- image of scaffold and stickfigure -->
     <% if !@intro %>
-      <div id="picdiv">
+    <div id="picdiv">
+
         <% if @wrong_guesses == 0 %>
           <img src="/nowrong.png" />
         <% elsif @wrong_guesses == 1 %>
@@ -87,7 +92,7 @@
       </div>
     <% end %>
 
-<!-- the hint, letters, guesses left, and cheat button -->
+<!-- the hint, letters, and cheat button -->
     <% if !(@lose || @win || @intro) %>
       <div id="hintdiv">
 
@@ -110,11 +115,9 @@
         <form action='/choose_word' method="get">
           <input type='submit' value='choose a new word' class='btn btn-primary'>
         </form>
-      </p>
 
-      <p>
         <form action='/cheat' method="post">
-          <input type='submit' value='cheat and show the word' class='btn btn-primary'>
+          <input type='submit' value='cheat' class='btn btn-primary'>
         </form>
       </p>
 
@@ -133,11 +136,7 @@
     <% end %>
 
   </div>
-
-
-
-
-  </div>
+</div>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
   </body>
   <footer>
