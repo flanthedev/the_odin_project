@@ -1,0 +1,1 @@
+solutions for practicing callbacks. From <a href="https://www.theodinproject.com/courses/javascript-and-jquery/lessons/callbacks">this course material</a> and also Bianca Galdolfo's <a href="https://github.com/bgando/functionalJS">course</a>
