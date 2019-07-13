@@ -3,25 +3,26 @@ var fs = require('fs');
 http = require('http');
 var dt = require('./datetime');
 
-// const hostname = '127.0.0.1';
-// const port = 3000;
-
-// const server = http.createServer((req, res) => {
-//   fs.readFile('index.html', (err, data) => {
-//     res.writeHead(200, {'Content-Type': 'text/html'});
-//   // res.write("The date and time are currently: " + dt.myDateTime());
-//     res.write(data);
-//     res.end();
-//   })
-// });
-
-
-// server.listen(port, hostname, () => {
-//   console.log(`Server running at http://${hostname}:${port}/`);
-// });
 var app = express()
+const hostname = '127.0.0.1';
+const port = 3000;
 
-// respond with "hello world" when a GET request is made to the homepage
 app.get('/', function (req, res) {
-  res.send('hello world')
+  res.send('index');
 })
+
+app.get('/about', function (req, res) {
+  res.send('about');
+})
+
+app.get('/contact-me', function (req, res) {
+  res.send('contact-me');
+})
+
+app.use(function (req, res, next) {
+  res.send('404')
+})
+
+app.listen(port, () => {
+  console.log(` ${dt.myDateTime()}: Server running at http://${hostname}:${port}/`);
+});
