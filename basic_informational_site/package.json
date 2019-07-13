@@ -1,0 +1,14 @@
+{
+  "name": "basic_informational_site",
+  "version": "1.0.0",
+  "description": "odin project exercise",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "flannerychristopher",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
